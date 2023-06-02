@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.core.config import settings
-from app.routers import user_router
+from app.routers import user_router, loan_router
 
 
 def get_application():
@@ -22,4 +22,4 @@ def get_application():
 
 app = get_application()
 
-app.include_router(user_router.router, prefix="/user", tags=["user"])
+app.include_router(user_router.router, prefix="/users", tags=["user"])
