@@ -3,6 +3,8 @@ from fastapi import APIRouter, HTTPException
 from app.models.user import User
 from app.models.loan import Loan
 from app.db.mockdb import users
+from datetime import datetime
+
 
 router = APIRouter()
 

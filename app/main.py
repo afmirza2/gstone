@@ -23,3 +23,4 @@ def get_application():
 app = get_application()
 
 app.include_router(user_router.router, prefix="/users", tags=["user"])
+app.include_router(loan_router.router, prefix="/loans", tags=["loan"])
