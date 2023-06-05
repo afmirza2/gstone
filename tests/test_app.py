@@ -49,6 +49,18 @@ def test_create_user(test_db):
     assert response.json()[0]['id'] == "greystone"
     assert response.json()[0]['loans'] == []
     
+def test_create_user_already_exists(test_db):    
+    response = client.post("/users", json={"id": "greystone", "loans": []})
+    
+    assert response.status_code == 200
+    assert response.json() == {"id": "greystone", "loans": []}
+    
+    # user already exists, 400 error
+    response = client.post("/users", json={"id": "greystone", "loans": []})
+    
+    assert response.status_code == 400
+    
+    
 def test_create_loan(test_db):
     client.post("/users", json={"id": "greystone"})
     response = client.post("/users/greystone/loans", json={
@@ -67,6 +79,25 @@ def test_create_loan(test_db):
     response = client.get("/users/greystone/loans")
     data = response.json()
     assert len(data) > 0
+
+def test_create_loan_invalid_user(test_db):
+    client.post("/users", json={"id": "greystone"})
+    response = client.post("/users/greystone2/loans", json={
+        "amount": 100000,
+        "annual_interest_rate": 6.5,
+        "loan_term_in_months": 12
+    })
+    assert response.status_code == 404
+    
+def test_create_loan_invalid_loan(test_db):
+    client.post("/users", json={"id": "greystone"})
+    response = client.post("/users/greystone/loans", json={
+        "amount": 100000,
+        "annual_interest_rate": 6.5,
+        "loan_term_in_months": 0
+    })
+    assert response.status_code == 422
+    assert response.json()['detail'][0]['type'] == 'value_error.number.not_gt'
     
 def test_loan_schedule(test_db):
     client.post("/users", json={"id": "greystone"})
