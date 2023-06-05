@@ -2,11 +2,13 @@
 
 This project is a REST API used for calculated Loan Amoritization. This was developed using FastAPI and SQLAlchemy + SQLite for the database.
 
-Run from the root directory with the command `fastapi run`
+To run:
+- Rename `.env_template` to `.env`
+- Run from the root directory with the command `fastapi run`
 
 ## Project Modules
 
-- `core` contains the settings for FastAPI in config.py
+- `core` contains the settings for FastAPI in `config.py`
 
 - `db` contains the SQLAlchemy settings and database models
 
