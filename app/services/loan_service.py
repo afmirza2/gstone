@@ -1,4 +1,4 @@
-from app.models.loan import Loan
+from app.schemas.loan import Loan
 
 
 def amortization_schedule(loan: Loan):
