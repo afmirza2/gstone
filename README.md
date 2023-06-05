@@ -32,5 +32,3 @@ To run:
 - `GET /loans/{loan_id}/schedule`
 - `GET /loans/{loan_id}/summary/{month}`
 - `POST /loans/{loan_id}/share/{user_id}`
-
-<img width="800" alt="Screenshot 2023-06-04 at 10 57 50 PM" src="https://github.com/afmirza2/gstone/assets/14025552/3aa05d0f-ee23-4641-a8d0-73e1e805ad0d">
