@@ -1,13 +1,10 @@
 from typing import Dict, List
 from fastapi import APIRouter, HTTPException, Depends
-from app.db import models
-from app.schemas.user import User
-from app.schemas.loan import Loan
-from app.db.sqldb import get_db
 from sqlalchemy.orm import Session
+from app.db import models
+from app.db.sqldb import get_db
 from app.schemas.monthly_payment import MonthlyPayment
 from app.schemas.loan_summary import LoanSummary
-from app.db.mockdb import users
 from app.services.loan_service import amortization_schedule
 
 
