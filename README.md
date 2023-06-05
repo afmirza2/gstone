@@ -13,8 +13,8 @@ To run:
 - `db` contains the SQLAlchemy settings and database models
 
 - `routers`
-   -  `user_router` contains endpoints related to the user
-   -  `loan_router` contains loan related endpoints
+   -  `user_router` contains endpoints related to users
+   -  `loan_router` contains endpoints related to loans
 
 - `schemas` contains pydantic models for `User`, `Loan`, `LoanSummary` and `MonthlyPayment`
 
